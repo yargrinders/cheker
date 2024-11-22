@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="wrapper">
+        <div id="message"></div>
         <div class="container">
             <div>
                 <div class="language-switcher">
@@ -74,7 +75,40 @@
             </div>
         </div>
     </div>
+    <script>
+        function checkDeviceAndBrowser() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+            const isChrome = /chrome/i.test(userAgent) && !/edge|edg|opera|opr/i.test(userAgent);
 
+            const messageElement = document.getElementById('message');
+
+            if (isMobile) {
+                // Gerät - Mobil
+                messageElement.innerHTML = `
+                    <div class="warning">
+                        Ihr Gerät wird nicht unterstützt. 
+                        Die Webseite ist nur auf einem PC verfügbar.
+                    </div>
+                `;
+            } else if (!isChrome) {
+                // Browser ist nicht Google Chrome
+                messageElement.innerHTML = `
+                    <div class="warning">
+                        Ihr Browser wird nicht unterstützt. 
+                        Bitte verwenden Sie Google Chrome auf einem PC.
+                    </div>
+                `;
+            } else {
+                // Gerät und Browser entsprechen den Anforderungen
+                messageElement.innerHTML = `
+                `;
+            }
+        }
+
+        // Überprüfung beim Laden der Seite starten
+        checkDeviceAndBrowser();
+    </script>
     <script src="script.js"></script>
     <script src="language.js"></script>
 </body>
