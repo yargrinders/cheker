@@ -96,6 +96,13 @@ select {
     }
   }
   
+  .message {
+    color: red;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
   .warning {
     color: red;
     font-weight: bold;
