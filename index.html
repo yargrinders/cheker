@@ -10,6 +10,13 @@
     <div class="wrapper">
         <div class="container">
             <div>
+                <div class="language-switcher">
+                    <label for="languageSelect">Schprache:</label>
+                    <select id="languageSelect" onchange="changeLanguage()">
+                        <option value="de" data-icon="🇩🇪">DE</option>
+                        <option value="ru" data-icon="🇷🇺">RU</option>
+                    </select>
+                </div>
                 <h1>Nutzungsanleitung</h1>
     <p>Diese Webseite funktioniert nur auf einem PC im <strong>Google Chrome</strong>-Browser.</p>
     <p><strong>Wichtig:</strong> Für den Betrieb der Webseite ist es zwingend erforderlich, das Plugin <a href="https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino" target="_blank">CORS Unblock</a> herunterzuladen und zu aktivieren.</p>
@@ -62,10 +69,13 @@
 
                 <button id="start">Überprüfung starten</button>
                 <pre id="output"></pre>
+                <progress id="progressBar" value="0" max="100" style="width: 100%; margin-bottom: 10px;"></progress>
+
             </div>
         </div>
     </div>
 
     <script src="script.js"></script>
+    <script src="language.js"></script>
 </body>
 </html>

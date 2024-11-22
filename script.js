@@ -5,8 +5,10 @@ document.getElementById('start').addEventListener('click', function () {
     const examDate = document.getElementById('examDate').value;
     const birthDate = document.getElementById('birthDate').value;
     const output = document.getElementById('output');
+    const progressBar = document.getElementById('progressBar');
     let positiveResults = []; // Speicherung der positiven Ergebnisse
     let totalPositive = 0; // Zähler für positive Ergebnisse
+    const totalNumbers = endNumber - startNumber + 1; // Gesamtanzahl der Teilnehmer
 
     // Funktion zum Senden von Anfragen
     async function sendRequest(participantNumber) {
@@ -65,19 +67,30 @@ document.getElementById('start').addEventListener('click', function () {
         appendMessage('Alle anderen Ergebnisse:\n', 'error');
     }
 
+    // Aktualisierung des Statusbalkens
+    function updateProgressBar(current, total) {
+        const percentage = Math.round((current / total) * 100);
+        progressBar.value = percentage;
+        progressBar.textContent = `${percentage}%`;
+    }
+
     // Hauptschleife zur Nummerndurchlauf
     async function startCheck() {
         positiveResults = []; // Positive Ergebnisse zurücksetzen
         totalPositive = 0; // Zähler zurücksetzen
         output.textContent = ''; // Feld vor Beginn leeren
+        progressBar.value = 0; // Statusbalken zurücksetzen
 
         for (let num = startNumber; num <= endNumber; num++) {
             // Nummer mit führender Null erstellen
             const participantNumber = num.toString().padStart(7, '0');
             appendMessage(`Nummer wird überprüft: ${participantNumber}\n`);
             await sendRequest(participantNumber); // Warten auf Abschluss der Anfrage für jede Nummer
+            updateProgressBar(num - startNumber + 1, totalNumbers); // Fortschritt aktualisieren
             updateOutput(); // Ausgabe nach jeder Anfrage aktualisieren
         }
+
+        appendMessage('Überprüfung abgeschlossen!', 'success');
     }
 
     startCheck();

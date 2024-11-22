@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка результатов экзамена</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div>
+                <div class="language-switcher">
+                    <label for="languageSelect">Язык:</label>
+                    <select id="languageSelect" onchange="changeLanguage()">
+                        <option value="de" data-icon="🇩🇪">DE</option>
+                        <option value="ru" data-icon="🇷🇺">RU</option>
+                    </select>
+                </div>
+                <h1>Инструкция по использованию</h1>
+                <p>Этот сайт работает только на ПК в браузере <strong>Google Chrome</strong>.</p>
+                <p><strong>Важно:</strong> Для работы сайта обязательно нужно скачать и включить плагин <a href="https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino" target="_blank">CORS Unblock</a>.</p>
+    
+                <div class="status-container">
+                    <div class="status">
+                        <img src="img/on.png" alt="Включено">
+                        <p>Включено</p>
+                    </div>
+                    <div class="status">
+                        <img src="img/off.png" alt="Выключено">
+                        <p>Выключено</p>
+                    </div>
+                </div>
+
+                <h2>Шаги для использования сайта</h2>
+                <ol>
+                    <li>Скачайте и установите плагин <a href="https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino" target="_blank">CORS Unblock</a> для браузера Chrome.</li>
+                    <li>Включите плагин перед использованием сайта.</li>
+                    <li>Выберите <strong>диапазон чисел</strong>.</li>
+                    <li>Введите <strong>дату экзамена</strong>.</li>
+                    <li>Введите свою <strong>дату рождения</strong>.</li>
+                </ol>
+
+                <h2>Примечания к отображению результатов</h2>
+                <p>Если в списке появляется запись <span style="color: green;"><strong>зелёным цветом</strong></span>, там вы увидите свой номер. После этого можно перейти на официальный сайт <a href="https://results.telc.net/" target="_blank">https://results.telc.net/</a> и проверить свои результаты.</p>
+            </div>
+            <div>
+                <h1>Проверка результатов экзамена</h1>
+
+                <div class="form-group">
+                    <label for="startNumber">Начало диапазона (startNumber):</label>
+                    <input type="number" id="startNumber" value="277600">
+                </div>
+
+                <div class="form-group">
+                    <label for="endNumber">Конец диапазона (endNumber):</label>
+                    <input type="number" id="endNumber" value="277699">
+                </div>
+
+                <div class="form-group">
+                    <label for="examDate">Дата экзамена (examDate):</label>
+                    <input type="date" id="examDate" value="2024-11-18">
+                </div>
+
+                <div class="form-group">
+                    <label for="birthDate">Дата рождения (birthDate):</label>
+                    <input type="date" id="birthDate" value="1990-12-01">
+                </div>
+
+                <button id="start">Начать проверку</button>
+                <pre id="output"></pre>
+                <progress id="progressBar" value="0" max="100" style="width: 100%; margin-bottom: 10px;"></progress>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="language.js"></script>
+</body>
+</html>
