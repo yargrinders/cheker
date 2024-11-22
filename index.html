@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Überprüfung der Prüfungsergebnisse </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div>
+                <h1>Nutzungsanleitung</h1>
+    <p>Diese Webseite funktioniert nur auf einem PC im <strong>Google Chrome</strong>-Browser.</p>
+    <p><strong>Wichtig:</strong> Für den Betrieb der Webseite ist es zwingend erforderlich, das Plugin <a href="https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino" target="_blank">CORS Unblock</a> herunterzuladen und zu aktivieren.</p>
+
+    <h2>Schritte zur Nutzung der Webseite</h2>
+    <ol>
+        <li>Laden Sie das Plugin <a href="https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino" target="_blank">CORS Unblock</a> herunter und installieren Sie es in Ihrem Chrome-Browser.</li>
+        <li>Aktivieren Sie das Plugin, bevor Sie die Webseite verwenden.</li>
+        <li>Wählen Sie den <strong>Zahlenbereich</strong> aus.</li>
+        <li>Geben Sie das <strong>Prüfungsdatum</strong> ein.</li>
+        <li>Geben Sie Ihr <strong>Geburtsdatum</strong> ein.</li>
+    </ol>
+
+    <h2>Hinweise zur Ergebnisausgabe</h2>
+    <p>Wenn ein Eintrag in <span style="color: green;"><strong>grüner Farbe</strong></span> erscheint, finden Sie dort Ihre Nummer. Danach können Sie auf der offiziellen Webseite <a href="https://results.telc.net/" target="_blank">https://results.telc.net/</a> Ihre Ergebnisse prüfen.</p>
+            </div>
+            <div>
+                <h1>Überprüfung der Prüfungsergebnisse</h1>
+
+                <div class="form-group">
+                    <label for="startNumber">Start des Bereichs (startNumber):</label>
+                    <input type="number" id="startNumber" value="277600">
+                </div>
+
+                <div class="form-group">
+                    <label for="endNumber">Ende des Bereichs (endNumber):</label>
+                    <input type="number" id="endNumber" value="277699">
+                </div>
+
+                <div class="form-group">
+                    <label for="examDate">Prüfungsdatum (examDate):</label>
+                    <input type="date" id="examDate" value="2024-11-18">
+                </div>
+
+                <div class="form-group">
+                    <label for="birthDate">Geburtsdatum (birthDate):</label>
+                    <input type="date" id="birthDate" value="1990-12-01">
+                </div>
+
+                <button id="start">Überprüfung starten</button>
+                <pre id="output"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="scrypt.js"></script>
+</body>
+</html>
