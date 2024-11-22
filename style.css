@@ -47,3 +47,18 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+.status-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
+}
+.status {
+    margin: 15px 0;
+    text-align: center;
+}
+img {
+    width: 50px;
+    height: auto;
+}
